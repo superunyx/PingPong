@@ -89,7 +89,12 @@ function love.update(dt)
             and ball_next_x+BALL_SIZE>=paddle_right_x
             and ball_x+BALL_SIZE < paddle_right_x)
     then
-        ball_dx=-ball_dx
+        BALL_SPEED=BALL_SPEED+50
+        if(ball_dx>0) then
+            ball_dx=-BALL_SPEED
+        else
+            ball_dx=BALL_SPEED
+        end
     elseif ball_next_x-BALL_SIZE<0 then
         score_right=score_right+1
         ball_x=w/2
